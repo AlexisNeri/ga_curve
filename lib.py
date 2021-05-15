@@ -107,8 +107,7 @@ def reproduction(survivors):
                 subject_b = male_chromosome
             son = subject_a[:slice_point]
             son.extend(subject_b[slice_point:])
-            print('Generated son #{0}: {1} from fathers: {2} and {3}'.format(chromosome, son, male_chromosome,
-                                                                             female_chromosome))
+            # print('Generated son #{0}: {1} from fathers: {2} and {3}'.format(chromosome, son, male_chromosome, female_chromosome))
             sons.append(son)
     # Once reproduction has finished we called mutation to generate random mutations
     mutation(sons)
@@ -131,11 +130,11 @@ def tournament(fathers):
 
     number_of_participants = random.choice(range(2, 33))
 
-    print('Generating randomly {} participants\n'.format(number_of_participants))
+    # print('Generating randomly {} participants\n'.format(number_of_participants))
     for i in range(number_of_participants):
         candidate_chromosome = fathers[random.choice(range(len(fathers)))]
         participants.append(candidate_chromosome)
-    print('These are the participants: {}\n'.format(participants))
+    # print('These are the participants: {}\n'.format(participants))
 
     # Calculating and appending curve error
     for candidate in participants:
@@ -151,7 +150,7 @@ def tournament(fathers):
             candidate.append(aptitude_tag)
 
     # Getting winner chromosome
-    print('Getting winner chromosome\n')
+    # print('Getting winner chromosome\n')
     winner_value = min(aptitude_tag_list)
     for candidate in participants:
         if winner_value == candidate[-1]:
